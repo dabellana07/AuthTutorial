@@ -32,6 +32,14 @@ namespace AuthTutorial.IdentityServer
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryApiResources(Config.Apis)
                 .AddTestUsers(Config.Users);
+            services.AddAuthentication()
+                .AddGoogle("Google", options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                    options.ClientId = "";
+                    options.ClientSecret = "";
+                });
         }
 
         public void Configure(IApplicationBuilder app)
