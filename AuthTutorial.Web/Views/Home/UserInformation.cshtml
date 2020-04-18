@@ -1,0 +1,7 @@
+﻿<div>
+    @foreach (var claim in User.Claims)
+    {
+        var claimKeyValue = $"{claim.Type}, {claim.Value}";
+        <li>@claimKeyValue</li>
+    }
+</div>
